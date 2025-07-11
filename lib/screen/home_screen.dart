@@ -42,7 +42,9 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: ListView.separated(
                   itemCount: genres.length,
-                  separatorBuilder: (_, __) => SizedBox(height: 12),
+                    separatorBuilder: (_, index) {
+                      return SizedBox(height: 24);
+                    },
                   itemBuilder: (_, index) {
                     final genre = genres[index];
                     return GestureDetector(
@@ -58,11 +60,11 @@ class HomeScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(4),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black12,
-                              blurRadius: 6,
+                              blurRadius: 4,
                               offset: Offset(0, 2),
                             ),
                           ],
@@ -91,8 +93,11 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Icon(Icons.arrow_forward_ios_rounded,
-                                size: 18, color: Colors.grey),
+                            SvgPicture.asset(
+                              'assets/icons/next.svg',
+                              width: 18,
+                              height: 18,
+                            )
                           ],
                         ),
                       ),

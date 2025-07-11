@@ -1,6 +1,7 @@
 // book_list_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/book.dart';
 import '../cubit/book_list_cubit.dart';
@@ -79,19 +80,26 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F6FF),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF8F6FF),
-        elevation: 0,
-        leading: const BackButton(color: Color(0xFF5A3FFF)),
-        title: Text(
-          widget.genre[0].toUpperCase() + widget.genre.substring(1).toLowerCase(),
-          style: const TextStyle(
-            color: Color(0xFF5A3FFF),
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          backgroundColor: const Color(0xFFF8F6FF),
+          elevation: 0,
+          leading: IconButton(
+            icon: SvgPicture.asset(
+              'assets/icons/back.svg',
+              width: 24,
+              height: 24,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: Text(
+            widget.genre[0].toUpperCase() + widget.genre.substring(1).toLowerCase(),
+            style: const TextStyle(
+              color: Color(0xFF5A3FFF),
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -103,10 +111,21 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
                 onChanged: (v) => setState(() {}),
                 decoration: InputDecoration(
                   hintText: "Search",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0), // Adjust as needed
+                    child: SvgPicture.asset(
+                      'assets/icons/search.svg', // Replace with your SVG path
+                      width: 16,
+                      height: 16,
+                    ),
+                  ),
                   suffixIcon: _searchController.text.isNotEmpty
                       ? IconButton(
-                    icon: const Icon(Icons.close),
+                    icon: SvgPicture.asset(
+                      'assets/icons/cancel.svg', // <-- your close SVG file path
+                      width: 20,
+                      height: 20,
+                    ),
                     onPressed: () {
                       _searchController.clear();
                       FocusScope.of(context).unfocus();
