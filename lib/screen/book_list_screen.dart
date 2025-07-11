@@ -112,9 +112,9 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
                 decoration: InputDecoration(
                   hintText: "Search",
                   prefixIcon: Padding(
-                    padding: const EdgeInsets.all(12.0), // Adjust as needed
+                    padding: const EdgeInsets.all(12.0),
                     child: SvgPicture.asset(
-                      'assets/icons/search.svg', // Replace with your SVG path
+                      'assets/icons/search.svg',
                       width: 16,
                       height: 16,
                     ),
@@ -122,7 +122,7 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
                   suffixIcon: _searchController.text.isNotEmpty
                       ? IconButton(
                     icon: SvgPicture.asset(
-                      'assets/icons/cancel.svg', // <-- your close SVG file path
+                      'assets/icons/cancel.svg',
                       width: 20,
                       height: 20,
                     ),
