@@ -94,9 +94,10 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
           title: Text(
             widget.genre[0].toUpperCase() + widget.genre.substring(1).toLowerCase(),
             style: const TextStyle(
+              fontFamily: 'Montserrat',
               color: Color(0xFF5A3FFF),
               fontSize: 24,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -106,6 +107,11 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: TextField(
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
                 controller: _searchController,
                 onSubmitted: context.read<BookListCubit>().search,
                 onChanged: (v) => setState(() {}),
@@ -215,14 +221,19 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
           const SizedBox(height: 10),
           Text(
             book.title.toUpperCase(),
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+            style: const TextStyle(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w500, fontSize: 12),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 8),
           Text(
             author,
-            style: const TextStyle(fontSize: 11, color: Colors.grey),
+            style: const TextStyle(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w400,
+                fontSize: 12, color: Colors.grey),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           )

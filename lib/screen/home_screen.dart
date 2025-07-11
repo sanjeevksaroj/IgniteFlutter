@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
               Text(
                 AppStrings.gutenbergProject,
                 style: TextStyle(
+                  fontFamily: 'Montserrat',
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF5A3FFF),
@@ -36,7 +37,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 16),
               Text(
                   AppStrings.description,
-                style: TextStyle(fontSize: 14, color: Colors.black87),
+                style: TextStyle( fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14, color: Colors.black87),
               ),
               SizedBox(height: 32),
               Expanded(
@@ -88,6 +91,7 @@ class HomeScreen extends StatelessWidget {
                               child: Text(
                                 genre['label'],
                                 style: TextStyle(
+                                  fontFamily: 'Montserrat',
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
