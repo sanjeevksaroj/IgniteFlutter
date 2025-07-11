@@ -190,24 +190,36 @@ class _BookListScreenViewState extends State<_BookListScreenView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AspectRatio(
-            aspectRatio: 0.65,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Container(color: Colors.grey[200]),
-              ),
+        Container(
+        width: 114,
+        height: 162,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0x80D3D1EE),
+              blurRadius: 5,
+              offset: const Offset(0, 2),
             ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.cover,
+            errorBuilder: (_, __, ___) => Container(color: Colors.grey[200]),
           ),
-          const SizedBox(height: 4),
+        ),
+      ),
+          const SizedBox(height: 10),
           Text(
             book.title.toUpperCase(),
             style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
+          const SizedBox(height: 8),
           Text(
             author,
             style: const TextStyle(fontSize: 11, color: Colors.grey),
